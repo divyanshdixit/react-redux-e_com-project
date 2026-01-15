@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": "89b2bef6-1edc-4019-949d-bea324108744",
+      "name": "john",
+      "email": "john@gmail.com",
+      "password": "john@123"
+    },
+    {
+      "id": "b6563f18-ac6f-4abb-81e4-99eba249139e",
+      "name": "Div",
+      "email": "div@gmail.com",
+      "password": "div@123"
+    },
+    {
+      "id": "45794aa6-42b7-457f-bbe0-692d89afa479",
+      "name": "Abhi",
+      "email": "abhi@gmail.com",
+      "password": "abhi@123"
+    },
+    {
+      "id": "aeea99fc-b662-4c5d-a1b2-6c3f14a7ce6f",
+      "name": "Yash",
+      "email": "yash@gmail.com",
+      "password": "Yash@123"
+    },
+    {
+      "id": "fed7a544-38fc-4828-9ea8-fc4f63ffb10d",
+      "name": "Tanu",
+      "email": "tanu@gmail.com",
+      "password": "Tanu@123"
+    },
+    {
+      "id": "8aa4b776-044b-4e97-82b6-a04c3b61c487",
+      "name": "Raj",
+      "email": "raj@gmail.com",
+      "password": "Raj@123"
+    },
+    {
+      "id": "bfd99942-6143-4fcb-9697-529f7a95a14d",
+      "name": "Anuj",
+      "email": "anuj@gmail.com",
+      "password": "Anuj@123456"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "iPhone 15",
+      "price": 79999,
+      "category": "mobiles",
+      "image": "https://via.placeholder.com/300",
+      "description": "Apple iPhone 15"
+    }
+  ],
+  "orders": []
+}

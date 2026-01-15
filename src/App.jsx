@@ -1,13 +1,19 @@
-import { Button, TextField } from '@mui/material'
+
 // import './App.css'
-import { useState } from 'react';
 import Register from './components/Register';
+import Login from './components/Login';
+import HomePage from './components/Home';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
     <div> 
-      <Register />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
   )
 }

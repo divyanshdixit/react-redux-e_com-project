@@ -1,0 +1,15 @@
+# for routing in react:
+
+npm install react-router-dom
+
+Wrap App with Router
+
+Make Route Structure
+
+
+GET, POST, PUT, PATCH , DELETE
+
+
+#to run the json-server at port 8000:
+
+npx json-server --watch db.json --port 8000
