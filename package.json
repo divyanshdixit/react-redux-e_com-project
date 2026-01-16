@@ -1,35 +1,26 @@
 {
   "name": "react-redux-e_com-project",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.3.7",
-    "@reduxjs/toolkit": "^2.11.2",
-    "json-server": "^1.0.0-beta.3",
-    "json-server-auth": "^2.1.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-redux": "^9.2.0",
-    "react-router-dom": "^7.12.0"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "install-all": "cd frontend && npm install && cd ../backend && npm install",
+    "start": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm start\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "vite": "^7.2.4"
-  }
+    "concurrently": "^8.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divyanshdixit/react-redux-e_com-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/divyanshdixit/react-redux-e_com-project/issues"
+  },
+  "homepage": "https://github.com/divyanshdixit/react-redux-e_com-project#readme"
 }

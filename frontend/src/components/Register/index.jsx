@@ -2,8 +2,17 @@ import { TextField, Button, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 import { PageWrapper, AuthCard, Title, SubTitle } from "../Login/styles";
 import { validateEmail, validatePassword } from "../../utils/validation";
+import { useRegisterMutation } from "../../redux/apiService/api";
+import {useNavigate} from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../redux/feature/authSlice";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [register, {isLoading, error}] = useRegisterMutation();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -27,7 +36,7 @@ const Register = () => {
     // setForm({...form, [name]: value})
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(form);
     // valiadtion:
@@ -44,7 +53,21 @@ const Register = () => {
       return;
     }
     // clg('api hit')
-    
+
+    const data = {user_id: 1, name, email, password}
+
+  //   await fetch(`${API_URL}/register`, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(data),
+  // }).then(res => res.json());
+
+    const res = await register(data).unwrap();
+    // navigate to login route:
+    if(res.accessToken){
+      dispatch(setLogin({token: res.accessToken, user: res.user}));
+      navigate('/login');
+    }
   };
 
   return (

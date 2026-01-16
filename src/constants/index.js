@@ -1,1 +1,0 @@
-const SignHeading = "Sign In";

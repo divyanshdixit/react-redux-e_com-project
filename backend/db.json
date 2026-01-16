@@ -41,6 +41,27 @@
       "name": "Anuj",
       "email": "anuj@gmail.com",
       "password": "Anuj@123456"
+    },
+    {
+      "email": "index@gmail.com",
+      "password": "$2a$10$ud1thuSv0OElicnygOc2NOLnw.1f96TebuR5V.Cm4LKx.RoN8Oqnu",
+      "user_id": 1,
+      "name": "index",
+      "id": "tKvNjMz"
+    },
+    {
+      "email": "zoom@gmail.com",
+      "password": "$2a$10$Nby4d6/bMRi3EU6KuR8qdeiwfajX8pXbYOGYq.mfuR0mFAxBTgiPK",
+      "user_id": 1,
+      "name": "zoom",
+      "id": "CGGbmi6"
+    },
+    {
+      "email": "zoom1@gmail.com",
+      "password": "$2a$10$Mmuxa/UNK.PKxekG.XeY7.zwWNdyr8kkc/INoxLb5IdTXBdft54R2",
+      "user_id": 1,
+      "name": "zoom1",
+      "id": "geQABUq"
     }
   ],
   "products": [

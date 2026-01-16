@@ -13,3 +13,14 @@ GET, POST, PUT, PATCH , DELETE
 #to run the json-server at port 8000:
 
 npx json-server --watch db.json --port 8000
+
+# to run the frontend and backend:
+
+// 2 terminal
+
+npm install 
+npm run install-all
+npm run start:frontend
+
+// 2nd terminal
+npm run start:backend
