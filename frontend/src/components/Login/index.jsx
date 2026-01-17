@@ -1,23 +1,63 @@
 import { TextField, Button, Stack, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import { PageWrapper, AuthCard, Title, SubTitle, StyledBox } from "./styles";
+import { validateEmail, validatePassword } from "../../utils/validation";
+import { useLoginMutation } from "../../redux/apiService/api";
+import { setLogin } from "../../redux/feature/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  const [login, {isLoading, error}] = useLoginMutation();
+
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
 
+    console.log(name, value);
+    setForm((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(form);
+    const {email, password} = form;
+    
+    const formErrors = {};
+
+    formErrors.email = validateEmail(email);
+    formErrors.password = validatePassword(password);
+
+    if(Object.values(formErrors).some((item) => item)){
+      setErrors(formErrors); 
+      return;
+    }
+
+    // clg('hit loginapi')
+
+    const res = await login({email, password}).unwrap();
+    console.log('login result ', res);
+
+    if(res.accessToken){
+      dispatch(setLogin({token: res.accessToken, user: res.user}));
+      navigate('/products');
+    }
 
   };
 
   return (
     <StyledBox >
-      <PageWrapper>
+      <PageWrapper height="85vh">
         <AuthCard>
           <Title>Welcome Back</Title>
           <SubTitle>Login to continue</SubTitle>

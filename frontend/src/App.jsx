@@ -4,15 +4,35 @@ import Register from './components/Register';
 import Login from './components/Login';
 import HomePage from './components/Home';
 import { Route, Routes } from 'react-router-dom';
+import Header from './containers/UI/Header';
+import MainLayout from './containers/UI/Layout/Main';
+import Products from './components/Products';
+import ProductDetails from './components/Products/Details';
+import ProductLayout from './containers/UI/Layout/ProductLayout';
+import ProtectedRoute from './containers/UI/Layout/ProtectedRoute';
+// Navigate, Outlet
 
+// redux => token = null
 function App() {
+{/* nested routes, protected routes */}
 
   return (
     <div> 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/products" element={<ProductLayout />}>
+              <Route index element={<Products />} />
+              <Route path=":id" element={<ProductDetails />} />
+            </Route>
+          </Route>
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+        </Route>
       </Routes>
     </div>
   )

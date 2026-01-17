@@ -8,7 +8,7 @@ export const StyledBox = styled(Box)(() => ({
 }));
 
 export const PageWrapper = styled(Box)(({ }) => ({
-  minHeight: "100vh",
+  // minHeight: "100vh",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

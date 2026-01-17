@@ -62,6 +62,27 @@
       "user_id": 1,
       "name": "zoom1",
       "id": "geQABUq"
+    },
+    {
+      "email": "anand@gmail.com",
+      "password": "$2a$10$UEUKB2pUeKgLoLrmSLajpeNRBHrDelasNyEAgykDTGiQ7MJU9mu9C",
+      "user_id": 1,
+      "name": "anand",
+      "id": "oYGXfUk"
+    },
+    {
+      "email": "anand1@gmail.com",
+      "password": "$2a$10$dPrfB8FcYtT0Rk54SzwQjepCT7oyUPu8kCOFbLUSsfGmdBI5IP.vq",
+      "user_id": 1,
+      "name": "anand1",
+      "id": "ZiDkq3g"
+    },
+    {
+      "email": "enter@gmail.com",
+      "password": "$2a$10$.8r.CkxqIZlNHifdiKseNOuFPq.VLGyJeLRB3kJ1vGcpuoAht3SoG",
+      "user_id": 1,
+      "name": "enter",
+      "id": "IMwgHQY"
     }
   ],
   "products": [

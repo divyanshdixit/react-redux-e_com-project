@@ -1,6 +1,6 @@
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import { useState } from "react";
-import { PageWrapper, AuthCard, Title, SubTitle } from "../Login/styles";
+import { PageWrapper, AuthCard, Title, SubTitle, StyledBox } from "../Login/styles";
 import { validateEmail, validatePassword } from "../../utils/validation";
 import { useRegisterMutation } from "../../redux/apiService/api";
 import {useNavigate} from 'react-router-dom';
@@ -56,22 +56,17 @@ const Register = () => {
 
     const data = {user_id: 1, name, email, password}
 
-  //   await fetch(`${API_URL}/register`, {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(data),
-  // }).then(res => res.json());
-
     const res = await register(data).unwrap();
     // navigate to login route:
     if(res.accessToken){
-      dispatch(setLogin({token: res.accessToken, user: res.user}));
+      // dispatch(setLogin({token: res.accessToken, user: res.user}));
       navigate('/login');
     }
   };
 
   return (
-    <PageWrapper>
+    <StyledBox>
+    <PageWrapper sx={{pt: 3, pb: 3}}>
       <AuthCard>
         <Title>Create Account</Title>
         <SubTitle>Join us today</SubTitle>
@@ -128,6 +123,7 @@ const Register = () => {
         </Typography>
       </AuthCard>
     </PageWrapper>
+    </StyledBox>
   );
 };
 
