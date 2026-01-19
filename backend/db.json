@@ -1,55 +1,6 @@
 {
   "users": [
     {
-      "id": "89b2bef6-1edc-4019-949d-bea324108744",
-      "name": "john",
-      "email": "john@gmail.com",
-      "password": "john@123"
-    },
-    {
-      "id": "b6563f18-ac6f-4abb-81e4-99eba249139e",
-      "name": "Div",
-      "email": "div@gmail.com",
-      "password": "div@123"
-    },
-    {
-      "id": "45794aa6-42b7-457f-bbe0-692d89afa479",
-      "name": "Abhi",
-      "email": "abhi@gmail.com",
-      "password": "abhi@123"
-    },
-    {
-      "id": "aeea99fc-b662-4c5d-a1b2-6c3f14a7ce6f",
-      "name": "Yash",
-      "email": "yash@gmail.com",
-      "password": "Yash@123"
-    },
-    {
-      "id": "fed7a544-38fc-4828-9ea8-fc4f63ffb10d",
-      "name": "Tanu",
-      "email": "tanu@gmail.com",
-      "password": "Tanu@123"
-    },
-    {
-      "id": "8aa4b776-044b-4e97-82b6-a04c3b61c487",
-      "name": "Raj",
-      "email": "raj@gmail.com",
-      "password": "Raj@123"
-    },
-    {
-      "id": "bfd99942-6143-4fcb-9697-529f7a95a14d",
-      "name": "Anuj",
-      "email": "anuj@gmail.com",
-      "password": "Anuj@123456"
-    },
-    {
-      "email": "index@gmail.com",
-      "password": "$2a$10$ud1thuSv0OElicnygOc2NOLnw.1f96TebuR5V.Cm4LKx.RoN8Oqnu",
-      "user_id": 1,
-      "name": "index",
-      "id": "tKvNjMz"
-    },
-    {
       "email": "zoom@gmail.com",
       "password": "$2a$10$Nby4d6/bMRi3EU6KuR8qdeiwfajX8pXbYOGYq.mfuR0mFAxBTgiPK",
       "user_id": 1,
@@ -57,32 +8,23 @@
       "id": "CGGbmi6"
     },
     {
-      "email": "zoom1@gmail.com",
-      "password": "$2a$10$Mmuxa/UNK.PKxekG.XeY7.zwWNdyr8kkc/INoxLb5IdTXBdft54R2",
-      "user_id": 1,
-      "name": "zoom1",
-      "id": "geQABUq"
-    },
-    {
       "email": "anand@gmail.com",
       "password": "$2a$10$UEUKB2pUeKgLoLrmSLajpeNRBHrDelasNyEAgykDTGiQ7MJU9mu9C",
-      "user_id": 1,
       "name": "anand",
       "id": "oYGXfUk"
     },
     {
-      "email": "anand1@gmail.com",
-      "password": "$2a$10$dPrfB8FcYtT0Rk54SzwQjepCT7oyUPu8kCOFbLUSsfGmdBI5IP.vq",
-      "user_id": 1,
-      "name": "anand1",
-      "id": "ZiDkq3g"
+      "email": "divyansh@gmail.com",
+      "password": "$2a$10$QJiVmVwMGxj5eo0ty.8PtegqhyI3UjTGv9T5bi6KeYVKDI7IIV5r2",
+      "name": "Divyansh",
+      "id": "cTPJkyN"
     },
     {
-      "email": "enter@gmail.com",
-      "password": "$2a$10$.8r.CkxqIZlNHifdiKseNOuFPq.VLGyJeLRB3kJ1vGcpuoAht3SoG",
+      "email": "jo@gm.com",
+      "password": "$2a$10$VOhsUbMOT3JbDjf6VYNBo.74V48gcz5uGSQe3lSosUPV8looOMRZS",
       "user_id": 1,
-      "name": "enter",
-      "id": "IMwgHQY"
+      "name": "jo",
+      "id": "pZIB2Xj"
     }
   ],
   "products": [
@@ -93,6 +35,20 @@
       "category": "mobiles",
       "image": "https://via.placeholder.com/300",
       "description": "Apple iPhone 15"
+    }
+  ],
+  "categories":[
+    {
+      "id":"c1",
+      "name": "mobiles"
+    },
+    {
+      "id":"c2",
+      "name": "laptops"
+    },
+    {
+      "id":"c3",
+      "name": "books"
     }
   ],
   "orders": []

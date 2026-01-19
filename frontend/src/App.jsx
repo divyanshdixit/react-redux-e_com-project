@@ -1,5 +1,5 @@
 
-// import './App.css'
+import './App.css'
 import Register from './components/Register';
 import Login from './components/Login';
 import HomePage from './components/Home';
@@ -10,6 +10,10 @@ import Products from './components/Products';
 import ProductDetails from './components/Products/Details';
 import ProductLayout from './containers/UI/Layout/ProductLayout';
 import ProtectedRoute from './containers/UI/Layout/ProtectedRoute';
+import PublicRoute from './containers/UI/Layout/PublicRoute';
+import ErrorPage from './containers/UI/Errors/ErrorPage';
+import CartPage from './components/CartPage';
+import ProfilePage from './components/Profile';
 // Navigate, Outlet
 
 // redux => token = null
@@ -22,15 +26,21 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
 
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+
           <Route element={<ProtectedRoute />}>
             <Route path="/products" element={<ProductLayout />}>
               <Route index element={<Products />} />
               <Route path=":id" element={<ProductDetails />} />
             </Route>
+            <Route path='/cart' element={<CartPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
           </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path='*' element={<ErrorPage />} />
 
         </Route>
       </Routes>

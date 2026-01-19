@@ -7,7 +7,7 @@ const router = jsonServer.router("db.json");
 app.db = router.db;
 
 app.use(jsonServer.defaults());
-app.use(jsonServer.bodyParser);
+// app.use(jsonServer.bodyParser());
 
 // rewrite routes
 app.use(auth.rewriter(require("./routes.json")));
@@ -15,65 +15,24 @@ app.use(auth.rewriter(require("./routes.json")));
 // Enable auth
 app.use(auth);
 
-// crud router:
-app.use(router);
+// to get the user:
 
-// register user:
+app.get("/profile", auth, (req, res) => {
+  console.log(req.user);
+  if (!req.user) {
+    return res.status(401).json({
+      message: "Token valid but user not attached",
+    });
+  }
+  const email = req.user.email;
+  const user = app.db.get("users").find({ email }).value();
 
-// app.post("/register", (req, res) => {
-//   const { email, password, name } = req.body;
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
 
-//   if (!email || !password || !name) {
-//     return res.status(400).json({
-//       message: "Name, email and password are required"
-//     });
-//   }
-
-//   const users = app.db.get("users").value();
-
-//   const userExists = users.find((u) => u.email === email);
-//   if (userExists) {
-//     return res.status(409).json({
-//       message: "User already exists"
-//     });
-//   }
-
-//   const newUser = {
-//     id: Date.now(),
-//     name,
-//     email,
-//     password
-//   };
-
-//   app.db.get("users").push(newUser).write();
-
-//   return res.status(201).json({
-//     message: "User added successfully!",
-//     user: newUser
-//   });
-// });
-
-// for login user:
-// app.post("/login", (req, res) => {
-//   const { email, password } = req.body;
-
-//   const user = app.db
-//     .get("users")
-//     .find({ email, password })
-//     .value();
-
-//   if (!user) {
-//     return res.status(401).json({
-//       message: "Invalid email or password"
-//     });
-//   }
-
-//   // json-server-auth will auto-generate token
-//   res.json({
-//     accessToken: auth.sign({ email: user.email }, app.get("secret")),
-//     user
-//   });
-// });
+  return res.status(200).json(user);
+});
 
 // get all users:
 
@@ -82,7 +41,6 @@ app.use(router);
 //   const users = app.db.get("users").value();
 //   res.json(users);
 // });
-
 
 // app.use("/products", (req, res, next) => {
 //   if (req.method === "GET") return next();
@@ -93,11 +51,11 @@ app.use(router);
 //   next();
 // });
 
-
+// crud router:
+app.use(router);
 
 app.listen(8000, () => {
   console.log("🚀 Backend running at http://localhost:8000");
 });
-
 
 // /refresh-token

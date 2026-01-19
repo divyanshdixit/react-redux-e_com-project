@@ -21,8 +21,16 @@ export const api = createApi({
                method: "POST",
                body
             })
+        }),
+
+        // get the user details
+        getUser: builder.query({
+            query: () => ({
+                url: '/profile',
+                method: 'GET',
+            })
         })
     })
 })
 
-export const {useRegisterMutation, useLoginMutation} = api;
+export const {useRegisterMutation, useLoginMutation, useGetUserQuery} = api;
