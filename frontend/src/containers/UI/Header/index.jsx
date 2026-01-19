@@ -4,8 +4,12 @@ import { Toolbar, Box, IconButton, Menu, MenuItem } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Brand, NavButton, StyledAppBar } from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogout } from "../../../redux/feature/authSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);
@@ -17,6 +21,11 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    dispatch(setLogout())
+    handleClose();
+  }
 
   return (
     <StyledAppBar position="sticky">
@@ -38,17 +47,27 @@ const Header = () => {
 
         {/* right */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <NavButton  variant="outlined" to="/login">Login</NavButton>
-          <NavButton variant="outlined" to="/register">Register</NavButton>
+          {token ? (
+            <>
+              <IconButton onClick={handleProfileClick}>
+                <AccountCircleOutlinedIcon fontSize="large" />
+              </IconButton>
 
-          {/* <IconButton onClick={handleProfileClick}>
-            <AccountCircleOutlinedIcon fontSize="large" />
-          </IconButton>
-
-          <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-          </Menu> */}
+              <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <>
+              <NavButton variant="outlined" to="/login">
+                Login
+              </NavButton>
+              <NavButton variant="outlined" to="/register">
+                Register
+              </NavButton>
+            </>
+          )}
         </Box>
       </Toolbar>
     </StyledAppBar>

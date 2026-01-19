@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/divyanshdixit/react-redux-e_com-project/issues"
   },
-  "homepage": "https://github.com/divyanshdixit/react-redux-e_com-project#readme"
+  "homepage": "https://github.com/divyanshdixit/react-redux-e_com-project#readme",
+  "dependencies": {
+    "react-toastify": "^11.0.5"
+  }
 }

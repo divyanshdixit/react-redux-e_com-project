@@ -1,4 +1,11 @@
-import { TextField, Button, Stack, Typography, Box } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Stack,
+  Typography,
+  Box,
+  CircularProgress,
+} from "@mui/material";
 import { useState } from "react";
 import { PageWrapper, AuthCard, Title, SubTitle, StyledBox } from "./styles";
 import { validateEmail, validatePassword } from "../../utils/validation";
@@ -6,12 +13,13 @@ import { useLoginMutation } from "../../redux/apiService/api";
 import { setLogin } from "../../redux/feature/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const [login, {isLoading, error}] = useLoginMutation();
+
+  const [login, { isLoading, error }] = useLoginMutation();
 
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
@@ -29,34 +37,40 @@ export default function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(form);
-    const {email, password} = form;
-    
-    const formErrors = {};
+    try {
+      e.preventDefault();
+      console.log(form);
+      const { email, password } = form;
 
-    formErrors.email = validateEmail(email);
-    formErrors.password = validatePassword(password);
+      const formErrors = {};
 
-    if(Object.values(formErrors).some((item) => item)){
-      setErrors(formErrors); 
-      return;
+      formErrors.email = validateEmail(email);
+      formErrors.password = validatePassword(password);
+
+      if (Object.values(formErrors).some((item) => item)) {
+        setErrors(formErrors);
+        return;
+      }
+
+      // clg('hit loginapi')
+
+      const res = await login({ email, password }).unwrap();
+      console.log("login result ", res);
+
+      if (res.accessToken) {
+        dispatch(setLogin({ token: res.accessToken, user: res.user }));
+        navigate("/products");
+      }
+    } catch (err) {
+      console.log(err);
+      // toast
+      toast.error(err.data);
     }
-
-    // clg('hit loginapi')
-
-    const res = await login({email, password}).unwrap();
-    console.log('login result ', res);
-
-    if(res.accessToken){
-      dispatch(setLogin({token: res.accessToken, user: res.user}));
-      navigate('/products');
-    }
-
   };
 
   return (
-    <StyledBox >
+    <StyledBox>
+      <ToastContainer />
       <PageWrapper height="85vh">
         <AuthCard>
           <Title>Welcome Back</Title>
@@ -82,14 +96,17 @@ export default function Login() {
                 error={!!errors.password}
                 helperText={errors.password}
               />
-
-              <Button type="submit" variant="contained" size="large">
-                Login
-              </Button>
+              {isLoading ? (
+                <CircularProgress />
+              ) : (
+                <Button type="submit" variant="contained" size="large" disabled={!(!!form.email && !!form.password)}>
+                  Login
+                </Button>
+              )}
             </Stack>
           </form>
           <Typography textAlign="center" mt={2}>
-              Don’t have an account? Register
+            Don’t have an account? Register
           </Typography>
         </AuthCard>
       </PageWrapper>

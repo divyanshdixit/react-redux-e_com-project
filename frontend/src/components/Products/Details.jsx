@@ -1,9 +1,11 @@
 import React from 'react'
 
 const ProductDetails = () => {
-  
+  const product = null;
   return (
-    <div>ProductDetails</div>
+    <div>
+      ProductDetails - {product.name}
+      </div>
   )
 }
 

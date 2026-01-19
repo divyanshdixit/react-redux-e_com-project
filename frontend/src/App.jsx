@@ -10,6 +10,8 @@ import Products from './components/Products';
 import ProductDetails from './components/Products/Details';
 import ProductLayout from './containers/UI/Layout/ProductLayout';
 import ProtectedRoute from './containers/UI/Layout/ProtectedRoute';
+import PublicRoute from './containers/UI/Layout/PublicRoute';
+import NotFoundPage from './containers/UI/Error/NotFoundPage';
 // Navigate, Outlet
 
 // redux => token = null
@@ -20,6 +22,7 @@ function App() {
     <div> 
       <Routes>
         <Route element={<MainLayout />}>
+
           <Route path="/" element={<HomePage />} />
 
           <Route element={<ProtectedRoute />}>
@@ -29,8 +32,12 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+
+          <Route path='*' element={<NotFoundPage />} />
 
         </Route>
       </Routes>

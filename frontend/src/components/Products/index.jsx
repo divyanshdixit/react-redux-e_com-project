@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Products = () => {
-  console.log('first')
+  const product = null;
   return (
-    <div>Products</div>
+    <div>Products - {product.name}</div>
   )
 }
 
