@@ -17,22 +17,24 @@ app.use(auth);
 
 // to get the user:
 
-app.get("/profile", auth, (req, res) => {
-  console.log(req.user);
-  if (!req.user) {
-    return res.status(401).json({
-      message: "Token valid but user not attached",
-    });
-  }
-  const email = req.user.email;
-  const user = app.db.get("users").find({ email }).value();
+// app.get("/profile", (req, res) => {
+//   console.log(req.user);
+//   if (!req.user) {
+//     return res.status(401).json({
+//       message: "Token valid but user not attached",
+//     });
+//   }
+//   const userId = req.user.sub;
+//   console.log(userId);
+//   const email = req.user.email;
+//   const user = app.db.get("users").find({ email }).value();
 
-  if (!user) {
-    return res.status(404).json({ message: "User not found" });
-  }
+//   if (!user) {
+//     return res.status(404).json({ message: "User not found" });
+//   }
 
-  return res.status(200).json(user);
-});
+//   return res.status(200).json(user);
+// });
 
 // get all users:
 

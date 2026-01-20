@@ -4,7 +4,13 @@ export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:8000',
-        // headers
+        prepareHeaders: (headers, {getState}) => {
+            const token = getState().auth.token;
+            if(token){
+                headers.set("Authorization", `Bearer ${token}`)
+            }
+            return headers;
+        }
     }),
     endpoints: (builder) => ({
         register: builder.mutation({
@@ -25,10 +31,12 @@ export const api = createApi({
 
         // get the user details
         getUser: builder.query({
-            query: () => ({
-                url: '/profile',
-                method: 'GET',
-            })
+            query: (id) => {
+                return {
+                    url: `/600/users/${id}`,
+                    method: 'GET',
+                }
+            }
         })
     })
 })
