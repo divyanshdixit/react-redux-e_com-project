@@ -12,6 +12,7 @@ import ProductLayout from './containers/UI/Layout/ProductLayout';
 import ProtectedRoute from './containers/UI/Layout/ProtectedRoute';
 import PublicRoute from './containers/UI/Layout/PublicRoute';
 import NotFoundPage from './containers/UI/Error/NotFoundPage';
+import UserProfile from './components/UserProfile';
 // Navigate, Outlet
 
 // redux => token = null
@@ -30,6 +31,7 @@ function App() {
               <Route index element={<Products />} />
               <Route path=":id" element={<ProductDetails />} />
             </Route>
+            <Route path='/profile' element={<UserProfile />} />
           </Route>
 
           <Route element={<PublicRoute />}>

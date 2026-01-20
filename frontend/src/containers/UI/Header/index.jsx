@@ -6,6 +6,8 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { Brand, NavButton, StyledAppBar } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../../../redux/feature/authSlice";
+import { Link } from "react-router-dom";
+import { StyledLink } from "../../../components/Products/styles";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -54,7 +56,10 @@ const Header = () => {
               </IconButton>
 
               <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <StyledLink to={'/profile'}>
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                </StyledLink>
+                
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>
             </>
