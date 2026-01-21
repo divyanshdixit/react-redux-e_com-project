@@ -12,7 +12,7 @@ GET, POST, PUT, PATCH , DELETE
 
 #to run the json-server at port 8000:
 
-npx json-server --watch db.json --port 8000
+npx json-server --watch db.json --port 8001
 
 # to run the frontend and backend:
 
@@ -24,6 +24,11 @@ npm run start:frontend
 
 // 2nd terminal
 npm run start:backend
+
+// 3rd terminal:
+#to run the json-server at port 8001:
+
+npx json-server --watch db.json --port 8001
 
 
 authorization & authentication

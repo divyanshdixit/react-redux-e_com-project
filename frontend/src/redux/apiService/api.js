@@ -1,21 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BaseQueryAuthHandler } from "./baseQuery";
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8000',
-        prepareHeaders: (headers, {getState}) => {
-            const token = getState().auth.token;
-            if(token){
-                headers.set('Authorization', `Bearer ${token}`)
-            }
-            headers.set('Content-Type', 'application/json')
-        }
-    }),
+    baseQuery: BaseQueryAuthHandler,
     endpoints: (builder) => ({
         register: builder.mutation({
             query: (body) => ({
-                url: '/register',
+                url: 'http://localhost:8000/register',
                 method: 'POST',
                 body
             })
@@ -23,7 +15,7 @@ export const api = createApi({
 
         login: builder.mutation({
             query: (body) => ({
-               url: '/login', // localhost:8000/login
+               url: 'http://localhost:8000/login', // localhost:8000/login
                method: "POST",
                body
             })
@@ -32,11 +24,20 @@ export const api = createApi({
         getUser: builder.query({
             query: (id) => ({
                 method: 'GET',
-                url: `/600/users/${id}`
+                url: `http://localhost:8001/users/${id}`
+            })
+        }),
+
+        // put vs patch => 
+        updateUser: builder.mutation({
+            query: ({id, body}) => ({
+                url: `http://localhost:8001/users/${id}`,
+                method: 'PATCH',
+                body
             })
         })
         // /600/users/{id}
     })
 })
 
-export const {useRegisterMutation, useLoginMutation, useGetUserQuery} = api;
+export const {useRegisterMutation, useLoginMutation, useGetUserQuery, useUpdateUserMutation} = api;

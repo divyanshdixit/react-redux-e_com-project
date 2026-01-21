@@ -19,3 +19,19 @@ export const validateRegisterForm = ({name, email, password, confirmPassword}) =
         errors.email = validateEmail(email);
     }
 }
+
+export const validateForm = (name, phone, gender) => {
+    const newErrors = {};
+    if(name.trim().length < 2){
+        newErrors.name = "Name must be at least 2 characters";
+    }
+    if(!/^[6-9]\d{9}$/.test(phone)){
+        newErrors.phone = "Enter a valid 10-digit mobile number";
+    }
+    if (!gender) {
+        newErrors.gender = "Please select gender";
+    }
+
+    return newErrors;
+
+}

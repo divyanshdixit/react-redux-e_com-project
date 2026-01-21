@@ -1,66 +1,10 @@
 {
   "users": [
     {
-      "id": "89b2bef6-1edc-4019-949d-bea324108744",
-      "name": "john",
-      "email": "john@gmail.com",
-      "password": "john@123"
-    },
-    {
-      "id": "b6563f18-ac6f-4abb-81e4-99eba249139e",
-      "name": "Div",
-      "email": "div@gmail.com",
-      "password": "div@123"
-    },
-    {
-      "id": "45794aa6-42b7-457f-bbe0-692d89afa479",
-      "name": "Abhi",
-      "email": "abhi@gmail.com",
-      "password": "abhi@123"
-    },
-    {
-      "id": "aeea99fc-b662-4c5d-a1b2-6c3f14a7ce6f",
-      "name": "Yash",
-      "email": "yash@gmail.com",
-      "password": "Yash@123"
-    },
-    {
-      "id": "fed7a544-38fc-4828-9ea8-fc4f63ffb10d",
-      "name": "Tanu",
-      "email": "tanu@gmail.com",
-      "password": "Tanu@123"
-    },
-    {
-      "id": "8aa4b776-044b-4e97-82b6-a04c3b61c487",
-      "name": "Raj",
-      "email": "raj@gmail.com",
-      "password": "Raj@123"
-    },
-    {
-      "id": "bfd99942-6143-4fcb-9697-529f7a95a14d",
-      "name": "Anuj",
-      "email": "anuj@gmail.com",
-      "password": "Anuj@123456"
-    },
-    {
-      "email": "index@gmail.com",
-      "password": "$2a$10$ud1thuSv0OElicnygOc2NOLnw.1f96TebuR5V.Cm4LKx.RoN8Oqnu",
-      "user_id": 1,
-      "name": "index",
-      "id": "tKvNjMz"
-    },
-    {
-      "email": "zoom@gmail.com",
-      "password": "$2a$10$Nby4d6/bMRi3EU6KuR8qdeiwfajX8pXbYOGYq.mfuR0mFAxBTgiPK",
-      "user_id": 1,
-      "name": "zoom",
-      "id": "CGGbmi6"
-    },
-    {
       "email": "zoom1@gmail.com",
       "password": "$2a$10$Mmuxa/UNK.PKxekG.XeY7.zwWNdyr8kkc/INoxLb5IdTXBdft54R2",
       "user_id": 1,
-      "name": "zoom1",
+      "name": "new zoom",
       "id": "geQABUq"
     },
     {
@@ -68,7 +12,10 @@
       "password": "$2a$10$UEUKB2pUeKgLoLrmSLajpeNRBHrDelasNyEAgykDTGiQ7MJU9mu9C",
       "user_id": 1,
       "name": "anand",
-      "id": "oYGXfUk"
+      "id": "oYGXfUk",
+      "phone": "9555644954",
+      "gender": "male",
+      "city": "Kanpur"
     },
     {
       "email": "anand1@gmail.com",
@@ -83,6 +30,20 @@
       "user_id": 1,
       "name": "enter",
       "id": "IMwgHQY"
+    },
+    {
+      "email": "foo@gmail.com",
+      "password": "$2a$10$Eba1KUBW0ODrcEennLXS6OAgh4ExC4X1rsCsMIWLdjKL.TBfcW4vq",
+      "user_id": 1,
+      "name": "Foo",
+      "id": "cfSh96t"
+    },
+    {
+      "email": "div@gmail.com",
+      "password": "$2a$10$ekZK8WT41sk6lJn.PvGUTeeE/4w0TzNKERg6G89e0McFwCH/qBB4.",
+      "user_id": 1,
+      "name": "Div",
+      "id": "qSnBQOp"
     }
   ],
   "products": [
@@ -90,9 +51,50 @@
       "id": "1",
       "title": "iPhone 15",
       "price": 79999,
-      "category": "mobiles",
-      "image": "https://via.placeholder.com/300",
+      "category": "zoom12",
+      "image": "https://placehold.co/500",
       "description": "Apple iPhone 15"
+    },
+    {
+      "id": "2",
+      "title": "MacBook Air",
+      "price": 119999,
+      "category": "laptops",
+      "image": "https://placehold.co/400",
+      "description": "Apple MacBook Air M2"
+    },
+    {
+      "id": "3",
+      "title": "Atomic Habits",
+      "price": 499,
+      "category": "books",
+      "image": "https://placehold.co/300",
+      "description": "Self improvement book"
+    },
+    {
+      "id": "4",
+      "title": "Zero to One",
+      "price": 499,
+      "category": "books",
+      "image": "https://placehold.co/200",
+      "description": "Self improvement book"
+    },
+    {
+      "id": "5",
+      "title": "Master your emotions",
+      "price": 499,
+      "category": "books",
+      "image": "https://placehold.co/100",
+      "description": "Self improvement book"
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "title": "Product1",
+      "price": 100,
+      "quantity": 1,
+      "user_id": 10
     }
   ],
   "orders": []

@@ -8,9 +8,25 @@ import {
   Box,
 } from "@mui/material";
 import { PriceText, StyledCard, StyledLink } from "./styles";
+import { addToCart } from "../../redux/feature/cartSlice";
 // import SectionError from "../../containers/UI/Errors/SectionError";
+import {useDispatch, useSelector} from 'react-redux';
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const {user} = useSelector(state => state.auth);
+  const {items} = useSelector(state => state.cart);
+
+  const handleAddToCart = (id, title, price) => {
+    const cartItemObj = {
+      id,
+      title, 
+      price
+    }
+    dispatch(addToCart(cartItemObj))
+  }
+
+  console.log(items);
   return (
       <StyledCard>
         <StyledLink to={`${product.id}`}>
@@ -35,7 +51,7 @@ const ProductCard = ({ product }) => {
         </StyledLink>
 
         <Box sx={{ padding: 2 }}>
-          <Button fullWidth variant="contained">
+          <Button fullWidth variant="contained" onClick={() => handleAddToCart(product.id, product.title, product.price)}>
             Add to Cart
           </Button>
         </Box>

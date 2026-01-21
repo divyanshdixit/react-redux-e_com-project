@@ -7,20 +7,27 @@ import { useGetUserQuery } from '../../../redux/apiService/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@mui/material';
 import { setUser } from '../../../redux/feature/authSlice';
+import { ToastContainer } from 'react-toastify';
 
 const MainLayout = () => {
   const dispatch = useDispatch();
   const {token} = useSelector(state => state.auth);
-  const {data: user, isLoading, error} = useGetUserQuery('CGGbmi6', {skip: !token});
-  
-  if(isLoading) return <CircularProgress />
+  const uid = localStorage.getItem("uid")
+
+  const {data, isLoading, error} = useGetUserQuery(uid, {skip: !token || !uid});
+
   useEffect(() => {
-    dispatch(setUser(user))
-  }, [])
+    if(data){
+      dispatch(setUser(data))
+    }
+  }, [data])
+
+  if(isLoading) return <CircularProgress />
 
   return (
     <>
         <Header />
+        <ToastContainer position="top-right" />
         <ErrorBoundary fallback={<PageLevelError />} >
           <Outlet />
         </ErrorBoundary>

@@ -1,4 +1,4 @@
 {
-  "/users*": "/users",
-  "/products*": "/products"
+  "/users": "/users",
+  "/products": "/products"
 }
