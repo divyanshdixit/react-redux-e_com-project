@@ -35,9 +35,33 @@ export const api = createApi({
                 method: 'PATCH',
                 body
             })
-        })
+        }),
+        getProductDetail: builder.query({
+            query: (id) => ({
+                url: `http://localhost:8001/products/${id}`,
+                method: "GET"
+            })
+        }),
+        addToCartApi: builder.mutation({
+            query: (body) => ({
+                url: `http://localhost:8001/carts`,
+                method: 'POST',
+                body
+            })
+        }),
+        updateCartApi: builder.mutation({
+            query: ({id, body}) => ({
+                url: `http://localhost:8001/carts/${id}`,
+                method: 'PATCH',
+                body
+            })
+        }),
         // /600/users/{id}
+        getUserCart: builder.query({
+            query: (id) => `http://localhost:8001/carts?user_id=${id}`
+        }),
+
     })
 })
 
-export const {useRegisterMutation, useLoginMutation, useGetUserQuery, useUpdateUserMutation} = api;
+export const {useRegisterMutation, useLoginMutation, useGetUserQuery, useUpdateUserMutation, useGetProductDetailQuery, useGetUserCartQuery, useAddToCartApiMutation, useUpdateCartApiMutation} = api;

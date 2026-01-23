@@ -13,6 +13,7 @@ import ProtectedRoute from './containers/UI/Layout/ProtectedRoute';
 import PublicRoute from './containers/UI/Layout/PublicRoute';
 import NotFoundPage from './containers/UI/Error/NotFoundPage';
 import UserProfile from './components/UserProfile';
+import CartPage from './components/Carts';
 // Navigate, Outlet
 
 // redux => token = null
@@ -32,6 +33,7 @@ function App() {
               <Route path=":id" element={<ProductDetails />} />
             </Route>
             <Route path='/profile' element={<UserProfile />} />
+            <Route path='/cart' element={<CartPage />} />
           </Route>
 
           <Route element={<PublicRoute />}>

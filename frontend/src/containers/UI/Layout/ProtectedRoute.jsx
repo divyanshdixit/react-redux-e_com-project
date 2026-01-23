@@ -4,7 +4,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = () => {
   const {token} = useSelector(state => state.auth);
-  console.log(token);
+  // console.log(token);
     // token = null => user not authenticated
     // token = value => user is authenticated
 

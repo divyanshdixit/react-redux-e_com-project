@@ -12,6 +12,7 @@ import { StyledLink } from "../../../components/Products/styles";
 const Header = () => {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const {totalQuanity} = useSelector(state => state.cart);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);
@@ -42,9 +43,11 @@ const Header = () => {
 
           <NavButton to="/products">Products</NavButton>
 
-          <IconButton>
-            <ShoppingCartOutlinedIcon />
-          </IconButton>
+          <Link to='/cart'>
+            <IconButton target="">
+              <ShoppingCartOutlinedIcon  titleAccess={totalQuanity}/>
+            </IconButton>
+          </Link>
         </Box>
 
         {/* right */}
