@@ -52,7 +52,13 @@
       "title": "iPhone 15",
       "price": 79999,
       "category": "zoom12",
-      "image": "https://placehold.co/500",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Apple iPhone 15"
     },
     {
@@ -60,7 +66,13 @@
       "title": "MacBook Air",
       "price": 119999,
       "category": "laptops",
-      "image": "https://placehold.co/400",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Apple MacBook Air M2"
     },
     {
@@ -68,7 +80,13 @@
       "title": "Atomic Habits",
       "price": 499,
       "category": "books",
-      "image": "https://placehold.co/300",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Self improvement book"
     },
     {
@@ -76,7 +94,13 @@
       "title": "Zero to One",
       "price": 499,
       "category": "books",
-      "image": "https://placehold.co/200",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Self improvement book"
     },
     {
@@ -84,7 +108,13 @@
       "title": "Master your emotions",
       "price": 499,
       "category": "books",
-      "image": "https://placehold.co/100",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Self improvement book"
     },
     {
@@ -92,7 +122,13 @@
       "title": "Master your",
       "price": 699,
       "category": "books",
-      "image": "https://placehold.co/100",
+      "images": [
+        "https://placehold.co/100",
+        "https://placehold.co/200",
+        "https://placehold.co/300",
+        "https://placehold.co/400",
+        "https://placehold.co/500"
+      ],
       "description": "Self improvement book"
     }
   ],
@@ -102,7 +138,7 @@
       "title": "iPhone 15",
       "price": 79999,
       "user_id": "oYGXfUk",
-      "quantity": 2,
+      "quantity": 26,
       "id": 1
     },
     {
@@ -110,9 +146,46 @@
       "title": "MacBook Air",
       "price": 119999,
       "user_id": "oYGXfUk",
-      "quantity": 1,
+      "quantity": 27,
       "id": 2
+    },
+    {
+      "product_id": "3",
+      "title": "Atomic Habits",
+      "price": 499,
+      "user_id": "oYGXfUk",
+      "quantity": 53,
+      "id": 3
+    },
+    {
+      "product_id": "5",
+      "title": "Master your emotions",
+      "price": 499,
+      "user_id": "oYGXfUk",
+      "quantity": 35,
+      "id": 4
+    },
+    {
+      "product_id": "4",
+      "title": "Zero to One",
+      "price": 499,
+      "user_id": "oYGXfUk",
+      "quantity": 58,
+      "id": 5
     }
   ],
-  "orders": []
+  "orders": [],
+  "addresses": [
+    {
+      "id": 1,
+      "name": "divyansh",
+      "phone": "9555644954",
+      "street": "st1`",
+      "city": "city",
+      "state": "state",
+      "pincode": "201309",
+      "isDefault": true,
+      "user_id": "oYGXfUk"
+    }
+  ]
 }

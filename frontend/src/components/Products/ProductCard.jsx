@@ -8,24 +8,14 @@ import {
   Box,
 } from "@mui/material";
 import { PriceText, StyledCard, StyledLink } from "./styles";
-import { addToCart } from "../../redux/feature/cartSlice";
 // import SectionError from "../../containers/UI/Errors/SectionError";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  useAddToCartApiMutation,
-  useUpdateCartApiMutation,
-} from "../../redux/apiService/api";
 import { toast, ToastContainer } from "react-toastify";
 import { useCartActions } from "../../hooks/useCartActions";
 
 const ProductCard = ({ product }) => {
-  const [addToCartApi] = useAddToCartApiMutation();
-  const [updateCartApi] = useUpdateCartApiMutation();
-  const dispatch = useDispatch();
-  const { token, user } = useSelector((state) => state.auth);
   const { items } = useSelector((state) => state.cart);
   const addCartItem = useCartActions();
-  console.log(items);
 
   const handleAddToCart = (product_id, title, price) => {
     addCartItem(product_id, title, price);
@@ -38,7 +28,7 @@ const ProductCard = ({ product }) => {
         <CardMedia
           component="img"
           height="200"
-          image={product.image}
+          image={product.images[0]}
           alt={product.title}
         />
 

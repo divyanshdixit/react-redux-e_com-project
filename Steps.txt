@@ -28,7 +28,8 @@ npm run start:backend
 // 3rd terminal:
 #to run the json-server at port 8001:
 
-npx json-server --watch db.json --port 8001
+- cd backend
+- npx json-server --watch db.json --port 8001
 
 
 authorization & authentication

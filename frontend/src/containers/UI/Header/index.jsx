@@ -62,6 +62,9 @@ const Header = () => {
                 <StyledLink to={'/profile'}>
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                 </StyledLink>
+                <StyledLink to={'/checkout'}>
+                  <MenuItem onClick={handleClose}>Checkout</MenuItem>
+                </StyledLink>
                 
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>

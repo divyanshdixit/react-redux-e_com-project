@@ -7,6 +7,7 @@ import { ActionButton, FormField, PageWrapper } from "./styles";
 import EditIcon from "@mui/icons-material/Edit";
 import {ToastContainer, toast} from 'react-toastify';
 import { validateForm } from "../../utils/validation";
+import AddressForm from "../../containers/UI/AddressForm";
 
 const UserProfile = () => {
   const uid = localStorage.getItem("uid");
@@ -154,6 +155,15 @@ const UserProfile = () => {
       <ActionButton variant="contained" color="success" disabled={!isEdit} onClick={handleSave}>
         Save Changes
       </ActionButton>
+
+      {/* address: */}
+       
+      <AddressForm
+        mode={'ADD'}
+        initialData={null}
+        onSubmit={() => {}}
+        onCancel={() => setShowForm(false)}
+      />
     </PageWrapper>
   );
 };

@@ -14,6 +14,7 @@ import PublicRoute from './containers/UI/Layout/PublicRoute';
 import NotFoundPage from './containers/UI/Error/NotFoundPage';
 import UserProfile from './components/UserProfile';
 import CartPage from './components/Carts';
+import CheckoutPage from './components/Checkout';
 // Navigate, Outlet
 
 // redux => token = null
@@ -34,6 +35,7 @@ function App() {
             </Route>
             <Route path='/profile' element={<UserProfile />} />
             <Route path='/cart' element={<CartPage />} />
+            <Route path='/checkout' element={<CheckoutPage />} />
           </Route>
 
           <Route element={<PublicRoute />}>
